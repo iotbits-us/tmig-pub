@@ -1,0 +1,692 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": false,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": 1,
+  "id":1,
+  "graphTooltip": 0,
+  "links": [],
+  "panels": [
+    {
+      "bgColor": null,
+      "clockType": "12 hour",
+      "countdownSettings": {
+        "customFormat": null,
+        "endCountdownTime": "2020-05-26T01:49:00.000Z",
+        "endText": "00:00:00"
+      },
+      "datasource": null,
+      "dateSettings": {
+        "dateFormat": "YYYY-MM-DD",
+        "fontSize": "20px",
+        "fontWeight": "bold",
+        "showDate": true
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 0,
+        "y": 0
+      },
+      "id": 8,
+      "mode": "time",
+      "options": {
+        "bgColor": "",
+        "clockType": "12 hour",
+        "countdownSettings": {
+          "endCountdownTime": "2020-05-27T02:02:30-04:00",
+          "endText": "00:00:00"
+        },
+        "dateSettings": {
+          "dateFormat": "YYYY-MM-DD",
+          "fontSize": "20px",
+          "fontWeight": "normal",
+          "showDate": true
+        },
+        "mode": "time",
+        "timeSettings": {
+          "fontSize": "60px",
+          "fontWeight": "normal"
+        },
+        "timezone": "America/New_York",
+        "timezoneSettings": {
+          "fontSize": "14px",
+          "fontWeight": "normal",
+          "showTimezone": true,
+          "zoneFormat": "nameOffset"
+        }
+      },
+      "refreshSettings": {
+        "syncWithDashboard": false
+      },
+      "timeFrom": null,
+      "timeSettings": {
+        "customFormat": "HH:mm:ss",
+        "fontSize": "60px",
+        "fontWeight": "normal"
+      },
+      "timeShift": null,
+      "timezone": "America/New_York",
+      "timezoneSettings": {
+        "fontSize": "12px",
+        "fontWeight": "bold",
+        "showTimezone": false,
+        "zoneFormat": "offsetAbbv"
+      },
+      "title": "LOCAL TIME",
+      "type": "grafana-clock-panel"
+    },
+    {
+      "aliasColors": {},
+      "cacheTimeout": null,
+      "css_data": "",
+      "datasource": null,
+      "doInit": {},
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "format": "short",
+      "gridPos": {
+        "h": 5,
+        "w": 12,
+        "x": 6,
+        "y": 0
+      },
+      "handleMetric": {},
+      "html_data": "<!DOCTYPE html>\r\n<title>Example</title>\r\n\r\n<!-- Styles -->\t\r\n<style>\r\n.example5 {\r\n height: 50px;\t\r\n overflow: hidden;\r\n position: relative;\r\n}\r\n.example4 {\r\n height: 50px;\t\r\n overflow: hidden;\r\n position: relative;\r\n}\r\n.example5 h3 {\r\n font-size :2em;\r\n color:teal;\r\n position: absolute;\r\n width: 100%;\r\n height: 100%;\r\n margin: 0;\r\n line-height: 50px;\r\n text-align: center;\r\n /* Apply animation to this element */\t\r\n -moz-animation: example5 4s linear infinite alternate;\r\n -webkit-animation: example54s linear infinite alternate;\r\n animation: example5 4s linear infinite alternate;\r\n}\r\n.example4 h3 {\r\n font-size :3em;\r\n color:teal;\r\n position: absolute;\r\n width: 100%;\r\n height: 100%;\r\n margin: 0;\r\n line-height: 50px;\r\n text-align: center;\r\n /* Apply animation to this element */\t\r\n -moz-animation: example5 5s linear infinite alternate;\r\n -webkit-animation: example5 5s linear infinite alternate;\r\n animation: example5 4s linear infinite alternate;\r\n}\r\n/* Move it (define the animation) */\r\n@-moz-keyframes example5 {\r\n 0%   { -moz-transform: translateX(50%); }\r\n 100% { -moz-transform: translateX(0%); }\r\n}\r\n@-webkit-keyframes example5 {\r\n 0%   { -webkit-transform: translateX(50%); }\r\n 100% { -webkit-transform: translateX(0%); }\r\n}\r\n@-moz-keyframes example4 {\r\n 0%   { -moz-transform: translateX(60%); }\r\n 100% { -moz-transform: translateX(0%); }\r\n}\r\n@-webkit-keyframes example4 {\r\n 0%   { -webkit-transform: translateX(60%); }\r\n 100% { -webkit-transform: translateX(0%); }\r\n}\r\n@keyframes example5 {\r\n 0%   { \r\n -moz-transform: translateX(70%); /* Firefox bug fix */\r\n -webkit-transform: translateX(70%); /* Firefox bug fix */\r\n transform: translateX(70%); \t\t\r\n }\r\n 100% { \r\n -moz-transform: translateX(0%); /* Firefox bug fix */\r\n -webkit-transform: translateX(0%); /* Firefox bug fix */\r\n transform: translateX(0%); \r\n }\r\n}\r\n@keyframes example4 {\r\n 0%   { \r\n -moz-transform: translateX(70%); /* Firefox bug fix */\r\n -webkit-transform: translateX(70%); /* Firefox bug fix */\r\n transform: translateX(70%); \t\t\r\n }\r\n 100% { \r\n -moz-transform: translateX(0%); /* Firefox bug fix */\r\n -webkit-transform: translateX(0%); /* Firefox bug fix */\r\n transform: translateX(0%); \r\n }\r\n}\r\n</style>\r\n\r\n<!-- HTML -->\r\n<div class=\"example5\">\r\n<h3>...THIS IS   A DASHBOARD DEMO BY IOTBITS 2020 ... </h3>\r\n</div>\r\n<div class=\"example4\">\r\n<h3> www.iotbits.net </h3>\r\n</div>",
+      "id": 6,
+      "interval": null,
+      "js_code": "",
+      "js_init_code": "",
+      "links": [],
+      "maxDataPoints": 3,
+      "nullPointMode": "connected",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "type": "aidanmountford-html-panel"
+    },
+    {
+      "bgColor": null,
+      "clockType": "12 hour",
+      "countdownSettings": {
+        "customFormat": null,
+        "endCountdownTime": "2020-05-26T01:49:00.000Z",
+        "endText": "00:00:00"
+      },
+      "datasource": null,
+      "dateSettings": {
+        "dateFormat": "YYYY-MM-DD",
+        "fontSize": "20px",
+        "fontWeight": "bold",
+        "showDate": true
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 18,
+        "y": 0
+      },
+      "id": 10,
+      "mode": "time",
+      "options": {
+        "bgColor": "",
+        "clockType": "12 hour",
+        "countdownSettings": {
+          "endCountdownTime": "2020-05-27T02:02:30-04:00",
+          "endText": "00:00:00"
+        },
+        "dateSettings": {
+          "dateFormat": "YYYY-MM-DD",
+          "fontSize": "20px",
+          "fontWeight": "normal",
+          "showDate": true
+        },
+        "mode": "time",
+        "timeSettings": {
+          "fontSize": "60px",
+          "fontWeight": "normal"
+        },
+        "timezone": "US/Pacific",
+        "timezoneSettings": {
+          "fontSize": "14px",
+          "fontWeight": "normal",
+          "showTimezone": true,
+          "zoneFormat": "nameOffset"
+        }
+      },
+      "refreshSettings": {
+        "syncWithDashboard": false
+      },
+      "timeFrom": null,
+      "timeSettings": {
+        "customFormat": "HH:mm:ss",
+        "fontSize": "60px",
+        "fontWeight": "normal"
+      },
+      "timeShift": null,
+      "timezone": "America/New_York",
+      "timezoneSettings": {
+        "fontSize": "12px",
+        "fontWeight": "bold",
+        "showTimezone": false,
+        "zoneFormat": "offsetAbbv"
+      },
+      "title": "US/PACIFIC TIME",
+      "type": "grafana-clock-panel"
+    },
+    {
+      "datasource": null,
+      "description": "LIST ALL DASHBOARDS",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "folderId": null,
+      "gridPos": {
+        "h": 15,
+        "w": 10,
+        "x": 1,
+        "y": 5
+      },
+      "headings": true,
+      "id": 12,
+      "limit": 10,
+      "query": "",
+      "recent": true,
+      "search": false,
+      "starred": true,
+      "tags": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "DASHBOARDS LIST",
+      "type": "dashlist"
+    },
+    {
+      "aliasColors": {},
+      "cacheTimeout": null,
+      "css_data": "",
+      "datasource": null,
+      "doInit": {},
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "format": "short",
+      "gridPos": {
+        "h": 15,
+        "w": 10,
+        "x": 11,
+        "y": 5
+      },
+      "handleMetric": {},
+      "html_data": "<iframe width=\"735\" height=\"515\" src=\"https://iotbits.net\"></iframe>",
+      "id": 2,
+      "interval": null,
+      "js_code": "",
+      "js_init_code": "",
+      "links": [],
+      "maxDataPoints": 3,
+      "nullPointMode": "connected",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "IOTBITS WEBPAGE",
+      "type": "aidanmountford-html-panel"
+    },
+    {
+      "aliasColors": {
+        "WIFI RSSI SONOFF BACKYARD": "semi-dark-purple",
+        "mbox_dev_host.last": "semi-dark-red"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "myinflux",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 10,
+        "w": 10,
+        "x": 1,
+        "y": 20
+      },
+      "hiddenSeries": false,
+      "id": 14,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "WIFI RSSI MODBUSBOX",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "linear"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "mbox_dev_host",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "wifirssi"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "WIFI RSSI SONOFF BACKYARD",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "linear"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "spurna_backyard",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "wifi_rssi"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "WIFI RSSI SONOFF SAUNA",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "linear"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "spurna_bath",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "wifi_rssi"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "WIFI RSSI  ALL DEVICES",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:1063",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:1064",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "TEMP  SONOFF SAUNA": "semi-dark-red",
+        "TEMP SONOFF BACKYARD": "dark-yellow",
+        "WIFI RSSI SONOFF BACKYARD": "semi-dark-purple",
+        "mbox_dev_host.last": "semi-dark-red"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "myinflux",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 10,
+        "w": 10,
+        "x": 11,
+        "y": 20
+      },
+      "hiddenSeries": false,
+      "id": 15,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "TEMP SONOFF BACKYARD",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "linear"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "spurna_backyard",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "temperature"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "TEMP  SONOFF SAUNA",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "linear"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "spurna_bath",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "temperature"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "ACS310 TEMPERATURE",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "linear"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "ACS310",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "drive_temp"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "TEMPERATURE  ALL DEVICES",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:1063",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:1064",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    }
+  ],
+  "schemaVersion": 25,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "MAIN DASHBOARD NEW",
+  "uid": "ro1RxckMk",
+  "version": 1
+}

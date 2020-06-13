@@ -1,0 +1,119 @@
+
+version: '3'
+
+services:
+  # Define an  MQTT Service   
+  mosquitto:
+    image: eclipse-mosquitto
+    container_name: mqtt
+    #user: root
+    ports:
+      - "${MOSQUITTO_PORT}:1883"
+      - "${MOSQUITTO_WS_PORT}:8080"
+      - "${MOSQUITTO_SSL_PORT}:8883"
+    volumes:
+      - ./mosquitto/data/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - ./mosquitto/data/pwfile:/etc/mosquitto/pwfile
+      - ./mosquitto/data:/mosquitto/data
+    restart: unless-stopped
+    environment:
+      - PUID=0
+      - PGID=0
+    network_mode: "host"  
+    #networks:
+    # - timg 
+
+  # Define an  InfluxDB Service
+  influxdb1:
+    build: influxdb
+    container_name: influxdb1
+    #user: root
+    volumes:
+      - influxdb1:/var/lib/influxdb
+    restart: unless-stopped  
+    ports:
+      - "${INFLUXDB_PORT}:${INFLUXDB_API_PORT}"
+    environment:
+      INFLUXDB_DB: "${INFLUXDB_DB}"
+      INFLUXDB_ADMIN_USER: "${INFLUXDB_ADMIN_USER}"
+      INFLUXDB_ADMIN_PASSWORD: "${INFLUXDB_ADMIN_PASSWORD}"
+      INFLUXDB_API_PORT: "${INFLUXDB_API_PORT}"
+      INFLUXDB_HOST: "${INFLUXDB_HOST}"
+    networks:
+      - timg  
+
+  # Define  Telegraf  Service         
+  telegraf:
+    build: telegraf
+    container_name: telegraf1
+    links:
+      - influxdb1
+    depends_on:
+      - influxdb1
+    tty: true
+    networks:
+      - timg
+    restart: unless-stopped     
+    environment:
+      HOST_NAME: "telegraf1"
+      INFLUXDB_HOST: "${INFLUXDB_HOST}"
+      INFLUXDB_API_PORT: "${INFLUXDB_API_PORT}"
+      INFLUXDB_ADMIN_USER: "${INFLUXDB_ADMIN_USER}" 
+      INFLUXDB_ADMIN_PASSWORD: "${INFLUXDB_ADMIN_PASSWORD}"
+      TELEGRAF_MQTTSERVER: "${TELEGRAF_MQTTSERVER}"
+      TELEGRAF_MQTTPORT: "${TELEGRAF_MQTTPORT}"
+      TELEGRAF_TOPIC1: "${TELEGRAF_TOPIC1}"
+      TELEGRAF_MQTT_USERNAME: "${TELEGRAF_MQTT_USERNAME}"
+      TELEGRAF_MQTT_PASSWD: "${TELEGRAF_MQTT_PASSWD}"
+      DATABASE: "${INFLUXDB_DB}"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    privileged: true
+        
+  # Define Grafana   Service    
+  grafana:
+    build: grafana
+    container_name: grafana1
+    ports:
+      - "${GRAFANA_PORT}:${GRAFANA_PORT_INTERNAL}"
+    depends_on:
+      - influxdb1
+    links:
+      - influxdb1 
+    user: "root"
+    networks:
+      - timg
+    restart: unless-stopped      
+    environment: 
+      GF_INSTALL_PLUGINS: ${GRAFANA_INSTALL_PLUGINS}
+      GF_SECURITY_ADMIN_USER: ${GRAFANA_SECURITY_ADMIN_USER}
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_SECURITY_ADMIN_PASSWORD}
+      GF_SECURITY_SECRET_KEY: ${GRAFANA_SECURITY_SECRET_KEY}
+      GF_USERS_ALLOW_SIGN_UP: "${GRAFANA_USERS_ALLOW_SIGN_UP}"
+      GF_USERS_ALLOW_ORG_CREATE: "${GRAFANA_USERS_ALLOW_ORG_CREATE}"
+      GF_AUTH_ANONYMOUS_ENABLED: "${GRAFANA_AUTH_ANONYMOUS_ENABLED}"
+      GF_AUTH_ANONYMOUS_ORG_NAME: ${GRAFANA_AUTH_ANONYMOUS_ORG_NAME}
+      GF_DASHBOARDS_JSON_ENABLED: "${GRAFANA_DASHBOARDS_JSON_ENABLED}"
+      GRAFANA_PORT_INTERNAL: "${GRAFANA_PORT_INTERNAL}"
+      GF_DASHBOARDS_JSON_PATH: ${GRAFANA_DASHBOARDS_JSON_PATH}
+      GRAFANA_PLUGINS_ENABLED: "${GRAFANA_PLUGINS_ENABLED}"
+      DATABASE: "${INFLUXDB_DB}"
+      INFLUXDB_ADMIN_USER: "${INFLUXDB_ADMIN_USER}"
+      INFLUXDB_ADMIN_PASSWORD: "${INFLUXDB_ADMIN_PASSWORD}"
+      INFLUXDB_API_PORT: "${INFLUXDB_API_PORT}"
+      INFLUXDB_HOST: "${INFLUXDB_HOST}"
+    volumes: 
+      - grafana:/var/lib/grafana
+      - grafana-log:/var/log/grafana
+volumes:
+  mosquitto:
+    driver: ${VOLUMES_DRIVER}
+  grafana:
+    driver: ${VOLUMES_DRIVER}
+  grafana-log:
+    driver: ${VOLUMES_DRIVER}
+  influxdb1:
+    driver: ${VOLUMES_DRIVER}
+
+networks:  
+   timg:  {} 
