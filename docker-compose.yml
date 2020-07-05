@@ -72,10 +72,11 @@ services:
         
   # Define Grafana   Service    
   grafana:
+    #image: grafana/grafana:latest
     build: grafana
     container_name: grafana1
     ports:
-      - "${GRAFANA_PORT}:${GRAFANA_PORT_INTERNAL}"
+      - "${GRAFANA_PORT}:${GRAFANA_PORT_INTERNAL}"    
     depends_on:
       - influxdb1
     links:
@@ -83,7 +84,9 @@ services:
     user: "root"
     networks:
       - timg
-    restart: unless-stopped      
+    #restart: unless-stopped 
+    # env_file:
+    #   - ./grafana/config.monitoring     
     environment: 
       GF_INSTALL_PLUGINS: ${GRAFANA_INSTALL_PLUGINS}
       GF_SECURITY_ADMIN_USER: ${GRAFANA_SECURITY_ADMIN_USER}
@@ -95,8 +98,9 @@ services:
       GF_AUTH_ANONYMOUS_ORG_NAME: ${GRAFANA_AUTH_ANONYMOUS_ORG_NAME}
       GF_DASHBOARDS_JSON_ENABLED: "${GRAFANA_DASHBOARDS_JSON_ENABLED}"
       GRAFANA_PORT_INTERNAL: "${GRAFANA_PORT_INTERNAL}"
-      GF_DASHBOARDS_JSON_PATH: ${GRAFANA_DASHBOARDS_JSON_PATH}
+     # GF_DASHBOARDS_JSON_PATH: ${GRAFANA_DASHBOARDS_JSON_PATH}
       GRAFANA_PLUGINS_ENABLED: "${GRAFANA_PLUGINS_ENABLED}"
+      GRAFANA_HOME_DASHBOARD_UID: "${GRAFANA_HOME_DASHBOARD_UID}"
       DATABASE: "${INFLUXDB_DB}"
       INFLUXDB_ADMIN_USER: "${INFLUXDB_ADMIN_USER}"
       INFLUXDB_ADMIN_PASSWORD: "${INFLUXDB_ADMIN_PASSWORD}"
@@ -105,6 +109,9 @@ services:
     volumes: 
       - grafana:/var/lib/grafana
       - grafana-log:/var/log/grafana
+      - ./grafana/datasources/:/etc/grafana/provisioning/datasources/
+      - ./grafana/dashboards/:/etc/grafana/provisioning/dashboards/
+     # - ./grafana/plugins/:/etc/grafana/provisioning/plugins/
 volumes:
   mosquitto:
     driver: ${VOLUMES_DRIVER}
